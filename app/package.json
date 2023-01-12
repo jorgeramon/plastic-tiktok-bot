@@ -1,13 +1,10 @@
 {
-  "name": "angular-electron",
-  "description": "Angular Electron sample",
-  "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
-  },
+  "name": "plastic-tiktok-bot",
+  "description": "A TikTok bot for Clone Hero streamers",
   "version": "11.2.0",
   "main": "main.js",
   "private": true,
   "dependencies": {
+    "tiktok-live-connector": "^1.0.2"
   }
 }
