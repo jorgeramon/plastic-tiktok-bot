@@ -1,3 +1,22 @@
 :host {
-  
+  display: grid;
+  height: 100%;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 80px 1fr;
+  grid-template-areas:
+    "aside navbar"
+    "aside main";
+
+  app-navbar {
+    grid-area: navbar;
+  }
+
+  app-aside {
+    grid-area: aside;
+  }
+
+  main {
+    grid-area: main;
+    padding: 20px 30px 0px 30px;
+  }
 }

@@ -1,0 +1,32 @@
+:host {
+  background-color: rgb(var(--bs-dark-rgb));
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: white;
+    text-align: center;
+
+    li.logo {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    li.menu-item {
+      padding: 15px 8px;
+      font-size: 18px;
+      font-weight: bold;
+
+      &:not(.selected):hover {
+        cursor: pointer;
+      }
+
+      &:hover,
+      &.selected {
+        color: #111;
+        background-color: white;
+      }
+    }
+  }
+}
