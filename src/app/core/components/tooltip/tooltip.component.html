@@ -1,0 +1,28 @@
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div
+    class="toast align-items-center"
+    [class.text-bg-success]="isType('success')"
+    [class.text-bg-danger]="isType('error')"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    #toast
+  >
+    <div class="d-flex">
+      <div class="toast-body d-flex align-items-center">
+        <i
+          class="bi fs-4"
+          [class.bi-check-square]="isType('success')"
+          [class.bi-x-square]="isType('error')"
+        ></i>
+        <span class="fw-bold ms-3">{{ message }}</span>
+      </div>
+      <button
+        type="button"
+        class="btn-close btn-close-white me-2 m-auto"
+        data-bs-dismiss="toast"
+        aria-label="Close"
+      ></button>
+    </div>
+  </div>
+</div>

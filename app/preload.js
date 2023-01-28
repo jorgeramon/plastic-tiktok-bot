@@ -1,5 +1,9 @@
-const { contextBridge, ipcRenderer } = require("electron");
+const { contextBridge } = require("electron");
+const { connect } = require("./persistance");
+const bridge = require("./bridge");
 
-contextBridge.exposeInMainWorld("electronAPI", {
-  onChat: (callback) => ipcRenderer.on("tiktok-chat", callback),
+connect();
+
+contextBridge.exposeInMainWorld("electron", {
+  ...bridge,
 });

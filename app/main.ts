@@ -1,11 +1,28 @@
-import { app, BrowserWindow, screen } from 'electron';
+import {
+  app,
+  BrowserWindow,
+  screen,
+  ipcMain,
+  IpcMainInvokeEvent,
+} from 'electron';
 import * as path from 'path';
 import * as fs from 'fs';
-import { TikTokConnector } from './tiktok';
+import { connect, disconnect } from './tiktok';
 
 let win: BrowserWindow = null;
 const args = process.argv.slice(1),
   serve = args.some((val) => val === '--serve');
+
+function connectHandler(
+  _: IpcMainInvokeEvent,
+  username: string
+): Promise<void> {
+  return connect(win, username);
+}
+
+function disconnectHandler(): Promise<void> {
+  return disconnect();
+}
 
 function createWindow(): BrowserWindow {
   const size = screen.getPrimaryDisplay().workAreaSize;
@@ -16,6 +33,7 @@ function createWindow(): BrowserWindow {
     y: 0,
     width: size.width,
     height: size.height,
+    autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
       allowRunningInsecureContent: serve,
@@ -51,8 +69,8 @@ function createWindow(): BrowserWindow {
     win = null;
   });
 
-  // Connecting to TikTok
-  //new TikTokConnector(win).connect('ema5413');
+  ipcMain.handle('tiktok:connect', connectHandler);
+  ipcMain.handle('tiktok:disconnect', disconnectHandler);
 
   return win;
 }

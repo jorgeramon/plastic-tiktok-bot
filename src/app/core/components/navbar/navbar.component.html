@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid">
+    <div class="w-100 d-flex justify-content-end pe-5">
+      <button
+        *ngIf="!status"
+        class="btn btn-warning d-flex align-items-center fw-bold"
+        (click)="startLive()"
+      >
+        <i class="bi bi-play-btn fs-4 me-2"></i> Conectar al LIVE
+      </button>
+      <button
+        *ngIf="status"
+        class="btn btn-danger d-flex align-items-center fw-bold"
+        (click)="stopLive()"
+      >
+        <i class="bi bi-stop-btn fs-4 me-2"></i> Desconectar del LIVE
+      </button>
+    </div>
+  </div>
+</nav>

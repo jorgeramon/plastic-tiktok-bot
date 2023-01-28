@@ -5,6 +5,8 @@
   "main": "main.js",
   "private": true,
   "dependencies": {
+    "sequelize": "^6.28.0",
+    "sqlite3": "^5.1.4",
     "tiktok-live-connector": "^1.0.2"
   }
 }

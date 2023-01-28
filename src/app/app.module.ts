@@ -9,14 +9,23 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
-import { LayoutModule } from './layout/layout.module';
+import { ConfigModule } from './config/config.module';
+import { QueueModule } from './queue/queue.module';
+import { NavbarComponent } from './core/components/navbar/navbar.component';
+import { AsideComponent } from './core/components/aside/aside.component';
+import { TooltipComponent } from './core/components/tooltip/tooltip.component';
 
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
   new TranslateHttpLoader(http, './assets/i18n/', '.json');
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    AsideComponent,
+    TooltipComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -28,7 +37,8 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
         deps: [HttpClient],
       },
     }),
-    LayoutModule,
+    ConfigModule,
+    QueueModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

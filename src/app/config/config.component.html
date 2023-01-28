@@ -1,15 +1,20 @@
-<div class="card">
-  <div class="card-header text-bg-dark">
-    <span class="fs-5 fw-bold">Configuración sobre LIVE</span>
-  </div>
-  <div class="card-body">
-    <div class="row g-3 align-items-center">
-      <div class="col-auto">
-        <label class="form-label m-0">Nombre de usuario</label>
-      </div>
-      <div class="col-md-8 col-lg-6">
-        <input type="text" class="form-control" />
+<form [formGroup]="form" novalidate>
+  <div class="card">
+    <div class="card-header text-bg-dark">
+      <span class="fs-5 fw-bold">Configuración sobre LIVE</span>
+    </div>
+    <div class="card-body">
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label class="form-label m-0">Nombre de usuario</label>
+        </div>
+        <div class="col-md-8 col-lg-6">
+          <input type="text" class="form-control" formControlName="username" />
+        </div>
+        <div class="col-auto" *ngIf="isLoading('username')">
+          <div class="spinner-border text-success" role="status"></div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</form>
