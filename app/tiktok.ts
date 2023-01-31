@@ -5,6 +5,7 @@ let connection: WebcastPushConnection | null = null;
 
 function addListeners(win: BrowserWindow) {
   connection.on('chat', (data) => {
+    console.log('Chat', data);
     win.webContents.send('tiktok:chat', data);
 
     // TODO: Add the possibility to configure this

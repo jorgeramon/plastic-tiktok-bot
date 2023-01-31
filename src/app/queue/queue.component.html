@@ -7,7 +7,12 @@
       </div>
     </div>
   </div>
-  <div class="card-body">
-    <p class="text-center m-0">No hay canciones pendientes</p>
-  </div>
+  <ng-container *ngIf="queue$ | async as queue">
+    <div class="card-body" *ngIf="!queue.length">
+      <p class="text-center m-0">No hay canciones pendientes</p>
+    </div>
+    <ul class="list-group list-group-flush" *ngIf="queue.length">
+      <li class="list-group-item" *ngFor="let s of queue">{{ s.song }}</li>
+    </ul>
+  </ng-container>
 </div>
